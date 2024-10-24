@@ -5163,7 +5163,7 @@ return
             <Sprites>
               <Sprite Slot="22" Width="480" Height="270" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                 <Source>
-                  <FileName>sprites/quick0.png</FileName>
+                  <FileName>sprites/coolguy.png</FileName>
                   <OffsetX>0</OffsetX>
                   <OffsetY>0</OffsetY>
                   <ImportHeight>270</ImportHeight>
@@ -5178,7 +5178,7 @@ return
               </Sprite>
               <Sprite Slot="23" Width="480" Height="270" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                 <Source>
-                  <FileName>sprites/quick1.png</FileName>
+                  <FileName>sprites/coolguy2.png</FileName>
                   <OffsetX>0</OffsetX>
                   <OffsetY>0</OffsetY>
                   <ImportHeight>270</ImportHeight>
@@ -5193,7 +5193,7 @@ return
               </Sprite>
               <Sprite Slot="24" Width="480" Height="270" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                 <Source>
-                  <FileName>sprites/quick2.png</FileName>
+                  <FileName>sprites/gene.png</FileName>
                   <OffsetX>0</OffsetX>
                   <OffsetY>0</OffsetY>
                   <ImportHeight>270</ImportHeight>
@@ -5208,7 +5208,7 @@ return
               </Sprite>
               <Sprite Slot="25" Width="480" Height="270" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                 <Source>
-                  <FileName>sprites/quick3.png</FileName>
+                  <FileName>sprites/gene2.png</FileName>
                   <OffsetX>0</OffsetX>
                   <OffsetY>0</OffsetY>
                   <ImportHeight>270</ImportHeight>
@@ -5223,7 +5223,7 @@ return
               </Sprite>
               <Sprite Slot="26" Width="480" Height="270" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                 <Source>
-                  <FileName>sprites/quick4.png</FileName>
+                  <FileName>sprites/antag.png</FileName>
                   <OffsetX>0</OffsetX>
                   <OffsetY>0</OffsetY>
                   <ImportHeight>270</ImportHeight>
