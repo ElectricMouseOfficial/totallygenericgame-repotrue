@@ -2551,8 +2551,8 @@
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
             <SpeechColor>12</SpeechColor>
             <SpeechView>0</SpeechView>
-            <StartX>2220</StartX>
-            <StartY>70</StartY>
+            <StartX>2273</StartX>
+            <StartY>132</StartY>
             <StartingRoom>3</StartingRoom>
             <ThinkingView>0</ThinkingView>
             <TurnBeforeWalking>True</TurnBeforeWalking>
@@ -5307,6 +5307,21 @@ return
                   <OffsetY>0</OffsetY>
                   <ImportHeight>25</ImportHeight>
                   <ImportWidth>19</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="32" Width="27" Height="62" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/brush.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>62</ImportHeight>
+                  <ImportWidth>27</ImportWidth>
                   <ImportAsTile>False</ImportAsTile>
                   <Frame>0</Frame>
                   <RemapToGamePalette>False</RemapToGamePalette>
