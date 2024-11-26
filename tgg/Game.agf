@@ -68,7 +68,7 @@
       <ScaleMovementSpeedWithMaskResolution>False</ScaleMovementSpeedWithMaskResolution>
       <ScriptAPIVersion>Highest</ScriptAPIVersion>
       <ScriptCompatLevel>Highest</ScriptCompatLevel>
-      <SkipSpeech>MouseOrKeyboardOrTimer</SkipSpeech>
+      <SkipSpeech>MouseOnlyStrict</SkipSpeech>
       <SpeechPortraitSide>Left</SpeechPortraitSide>
       <SpeechStyle>Lucasarts</SpeechStyle>
       <SplitResources>0</SplitResources>
@@ -2414,7 +2414,7 @@
             <IdleDelay>20</IdleDelay>
             <IdleView>0</IdleView>
             <MovementLinkedToAnimation>True</MovementLinkedToAnimation>
-            <MovementSpeed>20</MovementSpeed>
+            <MovementSpeed>10</MovementSpeed>
             <MovementSpeedX>0</MovementSpeedX>
             <MovementSpeedY>0</MovementSpeedY>
             <NormalView>2</NormalView>
@@ -2454,22 +2454,22 @@
             <ID>2</ID>
             <IdleAnimationDelay>4</IdleAnimationDelay>
             <IdleDelay>20</IdleDelay>
-            <IdleView>0</IdleView>
+            <IdleView>3</IdleView>
             <MovementLinkedToAnimation>True</MovementLinkedToAnimation>
             <MovementSpeed>3</MovementSpeed>
             <MovementSpeedX>0</MovementSpeedX>
             <MovementSpeedY>0</MovementSpeedY>
-            <NormalView>1</NormalView>
+            <NormalView>3</NormalView>
             <Properties />
             <RealName>Gene</RealName>
             <ScriptName>cgene</ScriptName>
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
-            <SpeechColor>12</SpeechColor>
+            <SpeechColor>65535</SpeechColor>
             <SpeechView>0</SpeechView>
-            <StartX>160</StartX>
-            <StartY>120</StartY>
-            <StartingRoom>-1</StartingRoom>
+            <StartX>126</StartX>
+            <StartY>174</StartY>
+            <StartingRoom>3</StartingRoom>
             <ThinkingView>0</ThinkingView>
             <TurnBeforeWalking>True</TurnBeforeWalking>
             <UniformMovementSpeed>True</UniformMovementSpeed>
@@ -2478,7 +2478,7 @@
             <Interactions>
               <Event Index="0" />
               <Event Index="1" />
-              <Event Index="2" />
+              <Event Index="2">cgene_Talk</Event>
               <Event Index="3" />
               <Event Index="4" />
               <Event Index="5" />
@@ -2501,17 +2501,17 @@
             <MovementSpeed>3</MovementSpeed>
             <MovementSpeedX>0</MovementSpeedX>
             <MovementSpeedY>0</MovementSpeedY>
-            <NormalView>1</NormalView>
+            <NormalView>4</NormalView>
             <Properties />
             <RealName>Coolguy</RealName>
             <ScriptName>ccoolguy</ScriptName>
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
-            <SpeechColor>12</SpeechColor>
+            <SpeechColor>0</SpeechColor>
             <SpeechView>0</SpeechView>
-            <StartX>160</StartX>
-            <StartY>120</StartY>
-            <StartingRoom>-1</StartingRoom>
+            <StartX>1126</StartX>
+            <StartY>173</StartY>
+            <StartingRoom>3</StartingRoom>
             <ThinkingView>0</ThinkingView>
             <TurnBeforeWalking>True</TurnBeforeWalking>
             <UniformMovementSpeed>True</UniformMovementSpeed>
@@ -2520,7 +2520,7 @@
             <Interactions>
               <Event Index="0" />
               <Event Index="1" />
-              <Event Index="2" />
+              <Event Index="2">ccoolguy_Talk</Event>
               <Event Index="3" />
               <Event Index="4" />
               <Event Index="5" />
@@ -2590,9 +2590,7 @@
             <Script><![CDATA[// Dialog script file
 @S  // Dialog startup entry point
 cprotag: ...
-cprotag: Something's definitely off... but what... //Gains quest: "Walk around a bit (difficulty: easy)
-return
-]]></Script>
+cprotag: Something's definitely off... but what... //Gains quest: "Walk around a bit (difficulty: easy)]]></Script>
             <DialogOptions />
           </Dialog>
           <Dialog>
@@ -2601,12 +2599,10 @@ return
             <ShowTextParser>False</ShowTextParser>
             <Script><![CDATA[// Dialog script file
 @S  // Dialog startup entry point
-cprotag: Ah, I see the problem.
-cprotag: All of my stuff is gone.
-cprotag: I don't know who would rob the most basic guy in town, but hey, I shouldn't judge a clearlyu desperate person's life choices.
+cprotag: Ah, I see the problem. All of my stuff is gone.
+cprotag: I don't know who would rob the most basic guy in town, but hey, I shouldn't judge a clearly desperate person's life choices.
 cprotag: Though... something else still feels off... I should go outside. //Gets quest: "Go outside (difficutly: Impossible)
-return
-]]></Script>
+stop]]></Script>
             <DialogOptions />
           </Dialog>
           <Dialog>
@@ -2617,8 +2613,7 @@ return
 @S  // Dialog startup entry point
 cprotag: I.. still can't tell...
 cprotag: Maybe I should ask someone.
-return
-]]></Script>
+return]]></Script>
             <DialogOptions />
           </Dialog>
           <Dialog>
@@ -5341,6 +5336,46 @@ return
             </SubFolders>
             <Sprites />
           </SpriteFolder>
+          <SpriteFolder Name="gene">
+            <SubFolders />
+            <Sprites>
+              <Sprite Slot="33" Width="11" Height="19" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/geneF-idle.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>19</ImportHeight>
+                  <ImportWidth>11</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+            </Sprites>
+          </SpriteFolder>
+          <SpriteFolder Name="coolguy">
+            <SubFolders />
+            <Sprites>
+              <Sprite Slot="34" Width="11" Height="18" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/coolguyF-idle.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>18</ImportHeight>
+                  <ImportWidth>11</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+            </Sprites>
+          </SpriteFolder>
         </SubFolders>
         <Sprites>
           <Sprite Slot="0" Width="10" Height="6" ColorDepth="32" Resolution="Real" AlphaChannel="False">
@@ -5736,12 +5771,102 @@ return
           <View>
             <ID>3</ID>
             <Name>vgene</Name>
-            <Loops />
+            <Loops>
+              <Loop>
+                <ID>0</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>33</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>1</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>0</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>2</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>0</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>3</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames />
+              </Loop>
+            </Loops>
           </View>
           <View>
             <ID>4</ID>
             <Name>vcoolguy</Name>
-            <Loops />
+            <Loops>
+              <Loop>
+                <ID>0</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>34</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>1</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>0</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>2</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>0</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>3</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames />
+              </Loop>
+            </Loops>
           </View>
           <View>
             <ID>5</ID>
