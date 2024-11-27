@@ -1,4 +1,8 @@
+Game : (room:2)[D 3] Warning: blocking Say call during fade-out.
 Game : (room:2) Dialog: all options have been turned off, stopping dialog.
+Game : (room:2) Dialog: all options have been turned off, stopping dialog.
+Game : (room:3)[D 3] Warning: blocking Say call during fade-out.
 Game : (room:3) Dialog: all options have been turned off, stopping dialog.
 Game : (room:3) Dialog: all options have been turned off, stopping dialog.
-Game : (room:3) Dialog: all options have been turned off, stopping dialog.
+Game : (room:4) Dialog: all options have been turned off, stopping dialog.
+Game : (room:4) Dialog: all options have been turned off, stopping dialog.

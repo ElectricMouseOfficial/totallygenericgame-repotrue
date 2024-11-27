@@ -664,6 +664,10 @@
             <Description IsNull="True" />
             <Number>3</Number>
           </UnloadedRoom>
+          <UnloadedRoom>
+            <Description IsNull="True" />
+            <Number>4</Number>
+          </UnloadedRoom>
         </UnloadedRooms>
       </UnloadedRoomFolder>
     </Rooms>
@@ -2463,7 +2467,7 @@
             <Properties />
             <RealName>Gene</RealName>
             <ScriptName>cgene</ScriptName>
-            <Solid>True</Solid>
+            <Solid>False</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
             <SpeechColor>65535</SpeechColor>
             <SpeechView>0</SpeechView>
@@ -2505,9 +2509,9 @@
             <Properties />
             <RealName>Coolguy</RealName>
             <ScriptName>ccoolguy</ScriptName>
-            <Solid>True</Solid>
+            <Solid>False</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
-            <SpeechColor>0</SpeechColor>
+            <SpeechColor>25388</SpeechColor>
             <SpeechView>0</SpeechView>
             <StartX>1126</StartX>
             <StartY>173</StartY>
@@ -2549,7 +2553,7 @@
             <ScriptName>cantag</ScriptName>
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
-            <SpeechColor>12</SpeechColor>
+            <SpeechColor>52825</SpeechColor>
             <SpeechView>0</SpeechView>
             <StartX>2273</StartX>
             <StartY>132</StartY>
@@ -2563,6 +2567,48 @@
               <Event Index="0" />
               <Event Index="1" />
               <Event Index="2" />
+              <Event Index="3" />
+              <Event Index="4" />
+              <Event Index="5" />
+              <Event Index="6" />
+              <Event Index="7" />
+            </Interactions>
+          </Character>
+          <Character>
+            <AdjustSpeedWithScaling>False</AdjustSpeedWithScaling>
+            <AdjustVolumeWithScaling>False</AdjustVolumeWithScaling>
+            <AnimationDelay>50</AnimationDelay>
+            <BlinkingView>0</BlinkingView>
+            <Clickable>True</Clickable>
+            <DiagonalLoops>True</DiagonalLoops>
+            <ID>5</ID>
+            <IdleAnimationDelay>4</IdleAnimationDelay>
+            <IdleDelay>20</IdleDelay>
+            <IdleView>0</IdleView>
+            <MovementLinkedToAnimation>True</MovementLinkedToAnimation>
+            <MovementSpeed>3</MovementSpeed>
+            <MovementSpeedX>0</MovementSpeedX>
+            <MovementSpeedY>0</MovementSpeedY>
+            <NormalView>6</NormalView>
+            <Properties />
+            <RealName xml:space="preserve">Electric Mouse</RealName>
+            <ScriptName>ceMouse</ScriptName>
+            <Solid>True</Solid>
+            <SpeechAnimationDelay>5</SpeechAnimationDelay>
+            <SpeechColor>6367</SpeechColor>
+            <SpeechView>0</SpeechView>
+            <StartX>240</StartX>
+            <StartY>160</StartY>
+            <StartingRoom>4</StartingRoom>
+            <ThinkingView>0</ThinkingView>
+            <TurnBeforeWalking>True</TurnBeforeWalking>
+            <UniformMovementSpeed>True</UniformMovementSpeed>
+            <UseRoomAreaLighting>True</UseRoomAreaLighting>
+            <UseRoomAreaScaling>True</UseRoomAreaScaling>
+            <Interactions>
+              <Event Index="0" />
+              <Event Index="1">ceMouse_Interact</Event>
+              <Event Index="2">ceMouse_Talk</Event>
               <Event Index="3" />
               <Event Index="4" />
               <Event Index="5" />
@@ -2589,7 +2635,7 @@
             <ShowTextParser>False</ShowTextParser>
             <Script><![CDATA[// Dialog script file
 @S  // Dialog startup entry point
-cprotag: ...
+cprotag: . . .
 cprotag: Something's definitely off... but what... //Gains quest: "Walk around a bit (difficulty: easy)]]></Script>
             <DialogOptions />
           </Dialog>
@@ -2624,7 +2670,7 @@ return]]></Script>
 @S  // Dialog startup entry point
 cgene: Ah, Protag, how are you today?
 cprotag: Uh... sorry, do I know you?
-cgene: ...
+cgene: . . .
 cgene: Bro.
 cgene: We're brothers. I'm your older brother, GenericCharacter1. Though everyone calls me Gene.
 cgene: How do you forget that? We've been brothers for 22 years. Did you run into a wall headfirst again?
@@ -2642,7 +2688,7 @@ return
             <Script><![CDATA[// Dialog script file
 @S  // Dialog startup entry point
 cgene: Oh, and one last thing.
-cgene: Don't forget about me again. //switches dialogue sprite
+cgene: Don't forget about me again. \n - Devnote: They were supposed to have an unsettling dialogue sprite here -//switches dialogue sprite
 cprotag: Okay, no need to get emotional- geez...
 return
 ]]></Script>
@@ -2670,7 +2716,7 @@ cprotag: Wait, your name is 'Coolguy'? Did your parents name you that?
 ccoolguy: Nah, this amount of coolness you aren't born with, you have to earn this name and title!
 cprotag: Oh, what did you do to earn the title?
 ccoolguy: It was simple! I made myself a second dialogue sprite! Let me show it to ya!
-ccoolguy: Eyyyyyyy! //switches dialogue sprite
+ccoolguy: Eyyyyyyy! \n - Devnote: I didn't have time to implement any of the dialogue sprites \n (though the files are in the game) -//switches dialogue sprite
 ccoolguy: Whatcha think? Cool as hell, right?
 cprotag: I suppose, though my brother also has a second dialogue sprite...
 ccoolguy: Hm... well, I do have a third one that I'm workshopping... it's technically complete, but still needs to be refined...
@@ -2680,14 +2726,15 @@ return
 cprotag: Sure, I have time.
 ccoolguy: Alright!
 ccoolguy: So, this one is based on my father!
-ccoolguy: ... //disappears
-cprotag: ...
+  ccoolguy.x = 500;
+  ccoolguy.y = 50;
+cprotag: . . .
 cprotag: It's perfect...
-return
+stop
 @2
 cprotag: No thanks, I have places to be, mysteries to unfold.
 ccoolguy: Fair, fair... I'm not a fan of showing unfinished projects anyways. Though I'll be sure to show you when it's done!
-return
+stop
 ]]></Script>
             <DialogOptions>
               <DialogOption>
@@ -2710,17 +2757,24 @@ return
             <ShowTextParser>False</ShowTextParser>
             <Script><![CDATA[// Dialog script file
 @S  // Dialog startup entry point
-cprotag: Uh... why is the fountain damaged?
+cprotag: Uh... where did the fountain go?
 cantag: Really? You notice that is off before what I thought was incredibly obvious?
 cprotag: Who said that?
-cantag: *sigh* do I really have to do everything for you? Fine, I'll get closer... //is now visible to player
+cantag: *sigh* do I really have to do everything for you? Fine, I'll closer... //is now visible to player
+  cantag.x = 2260;
+  cantag.y = 135;
 cprotag: Ah, now I see you!
-cantag: Yeah, now that I'm practically right in front of you... you should consider getting glasses, your eyes aren't doing you any favors.
+cantag: (I only got slightly closer...)
+cantag: Yeah, now that I'm practically right in front of you... \n you should consider getting glasses, your eyes aren't doing you any favors.
+  ccoolguy.x = 2133;
+  ccoolguy.y = 173;
 ccoolguy: Did someone say glasses? I can offer sunglasses if you want!
 cantag: They're not the same thing- please don't tell me that you all are as dumb as you appear...
 cantag: Anyways, we're getting off topic- Have any of you noticed what is wrong with this world?
 cprotag: All of my posessions are gone?
 ccoolguy: I don't have my cool hair anymore?
+  cgene.x = 2118;
+  cgene.y = 174;
 cgene: Everything tastes like static, blood, and void?
 cantag: What- no, those are just stupid personal problems y'all have.
 cantag: Tell, me, what color are the brick tiles you're standing on?
@@ -2734,13 +2788,119 @@ cgene: What about defeating you in combat?
 cantag: No! This isn't some generic game in which you defeat the big bad to save the world!
 cantag: Now, if you excuse me, I have to convince kids that this is what people saw before colored TV was created.
 cantag: Enjoy your achromatic world! //leaves
+  cantag.x = 223;
+  cantag.y = 122;
 ccoolguy: So... what now?
 cprotag: I guess stop them? I was completely content with them taking away the world's color, but went too far when they insulted me...
 ccoolguy: True... sorry that you were called an american...
 cgene: What is an american?
 cprotag: Not sure, but I'm sure we'll find out if we search for a way to get things back to normal.
 ccoolguy: Speaking of which... I recently found something that could potentially help us- or, part of something.
-ccoolguy: Meet me outside my house- but don't go in, because cool people only let people they truly know or trust into their homes!
+ccoolguy: Meet me outside my house- but don't go in, \n because cool people only let people they truly know or trust into their homes!
+ccoolguy: I'll get it for us.
+  cantag.x = 2260;
+  cantag.y = 135;
+cantag: Wow, you guys really are as dumb as you appear!
+cantag: You know, just because I go offscreen doesn't mean that I'm gone or can't hear you, right?
+cgene: I dunno, it's kinda implied that-
+cantag: SHUT UP!
+cantag: Anyways, unlike most villians in stories, I'm not going to just let you guys beat me!
+cantag: From now on, you guys can't leave town, and can't go into your houses!
+cprotag: Wait, you mean, we have to stay... OUTSIDE?!
+cantag: Yup! Enjoy the weather, it's nice out, it's cloudy with a chance of... wait, no, it's clear out.
+cantag: Either way! No escape, no defeating me, no nothing! Now, goodbye for real!
+  cantag.x = 0;
+  cantag.y = 0;
+cgene: ...So what do we do now?
+ccoolguy: I know giving up isn't the cool thing to do, but... what CAN we do?
+cprotag: I don't know... but there has to be something, somewhere...
+  finale = finale + 1;
+  AudioChannel*ac = aIndie_music4.Play(eAudioPriorityHigh, eRepeat);
+  aIndie_music1.Play();
+  ac.Volume = 80;
+return
+]]></Script>
+            <DialogOptions />
+          </Dialog>
+          <Dialog>
+            <ID>8</ID>
+            <Name>possessTutorial</Name>
+            <ShowTextParser>False</ShowTextParser>
+            <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cprotag: - (Dev is posessing the protagonist to tell you this) \n Use arrow keys to move, click to progress dialogue \n You can click to move but that's not recommended -
+return
+]]></Script>
+            <DialogOptions />
+          </Dialog>
+          <Dialog>
+            <ID>9</ID>
+            <Name>possessBothSides</Name>
+            <ShowTextParser>False</ShowTextParser>
+            <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cprotag: - Devnote: There are people to talk to in both directions \n I suggest going left first -
+return
+]]></Script>
+            <DialogOptions />
+          </Dialog>
+          <Dialog>
+            <ID>10</ID>
+            <Name>eMouseclick</Name>
+            <ShowTextParser>False</ShowTextParser>
+            <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+ceMouse: Stop that.
+return
+]]></Script>
+            <DialogOptions />
+          </Dialog>
+          <Dialog>
+            <ID>11</ID>
+            <Name>eMouse_talk</Name>
+            <ShowTextParser>False</ShowTextParser>
+            <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+ceMouse: . . .
+ceMouse: . . . . .
+ceMouse: . . . . . . . . . .
+ceMouse: UGHHH, FINE!
+ceMouse: Look- you weren't supposed to find this place- you weren't even supposed to find this game.
+ceMouse: I thought you humans were losing your attention spans... why are you so interested in continuing.
+cprotag: Uh...
+ceMouse: Silence. I'm speaking with the player. Not you, protagonist- oh, my bad- Protag.
+ceMouse: I know you have questions on how to beat Antag- though...
+ceMouse: hold on. I should probably quickly make a physical manefestation of myself. Instead of just being an empty void.
+  aIndie_sfx1.Play();
+  ceMouse.Animate(1, 30);
+  AudioChannel*ac = aIndie_music5.Play(eAudioPriorityHigh, eRepeat);
+  aIndie_music1.Play();
+  ac.Volume = 80;
+  //ceMouse.Animate
+ceMouse: But yeah, you were not supposed to find this place, or game.
+ceMouse: I don't know why you decided to play this in the first place- it's so barebones...
+ceMouse: You'd think it's some game jam, but no. Time was given to complete this.
+ceMouse: So yeah, this universe is incomplete. And no, I don't plan on finishing it.
+ceMouse: Sure, the characters and art is fine. But everything else, especially story, should not continue to exist.
+ceMouse: So with that, please leave, and never return.
+ceMouse: I'm gonna go eat a bunch of sandwiches. And maybe learn a better game engine than Adventure Game Studio.
+ceMouse: I wonder how Godot is...
+   ceMouse.x = -300;
+   ceMouse.y = -300;
+return
+]]></Script>
+            <DialogOptions />
+          </Dialog>
+          <Dialog>
+            <ID>12</ID>
+            <Name>someone</Name>
+            <ShowTextParser>False</ShowTextParser>
+            <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+cprotag: . . .
+cprotag: Well, that was strange. Who knew that falling out of the world caused you to end up in an empty void?
+cprotag: . . .
+cprotag: Why do I detect someone's prescence...?
 return
 ]]></Script>
             <DialogOptions />
@@ -3183,7 +3343,13 @@ return
       <PaletteEntry Index="255" Type="Background" Red="120" Green="120" Blue="120" />
     </Palette>
     <GlobalVariables>
-      <Variables />
+      <Variables>
+        <GlobalVariable>
+          <DefaultValue>0</DefaultValue>
+          <Name>finale</Name>
+          <Type>int</Type>
+        </GlobalVariable>
+      </Variables>
     </GlobalVariables>
     <Sprites>
       <SpriteFolder Name="Main">
@@ -5148,6 +5314,21 @@ return
                   <ImportAlphaChannel>True</ImportAlphaChannel>
                 </Source>
               </Sprite>
+              <Sprite Slot="35" Width="480" Height="270" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/eMouse/480-270.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>270</ImportHeight>
+                  <ImportWidth>480</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
             </Sprites>
           </SpriteFolder>
           <SpriteFolder Name="verbs">
@@ -5366,6 +5547,131 @@ return
                   <OffsetY>0</OffsetY>
                   <ImportHeight>18</ImportHeight>
                   <ImportWidth>11</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+            </Sprites>
+          </SpriteFolder>
+          <SpriteFolder Name="eMouse">
+            <SubFolders />
+            <Sprites>
+              <Sprite Slot="36" Width="80" Height="60" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/eMouse/eMouse-load1.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>60</ImportHeight>
+                  <ImportWidth>80</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="37" Width="80" Height="60" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/eMouse/eMouse-load2.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>60</ImportHeight>
+                  <ImportWidth>80</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="38" Width="80" Height="60" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/eMouse/eMouse-load3.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>60</ImportHeight>
+                  <ImportWidth>80</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="39" Width="80" Height="60" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/eMouse/eMouse-load4.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>60</ImportHeight>
+                  <ImportWidth>80</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="40" Width="80" Height="60" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/eMouse/eMouse-load5.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>60</ImportHeight>
+                  <ImportWidth>80</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="41" Width="80" Height="60" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/eMouse/eMouse-load6.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>60</ImportHeight>
+                  <ImportWidth>80</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="42" Width="80" Height="60" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/eMouse/eMouse-0.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>60</ImportHeight>
+                  <ImportWidth>80</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>False</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>LeaveAsIs</ImportMethod>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="43" Width="80" Height="60" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>sprites/eMouse/80x60-black.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>60</ImportHeight>
+                  <ImportWidth>80</ImportWidth>
                   <ImportAsTile>False</ImportAsTile>
                   <Frame>0</Frame>
                   <RemapToGamePalette>False</RemapToGamePalette>
@@ -5920,10 +6226,84 @@ return
           </View>
           <View>
             <ID>6</ID>
-            <Name>View6</Name>
+            <Name>veMouse</Name>
             <Loops>
               <Loop>
                 <ID>0</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>43</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>1</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>36</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>1</ID>
+                    <Image>37</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>2</ID>
+                    <Image>38</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>3</ID>
+                    <Image>39</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>4</ID>
+                    <Image>40</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>5</ID>
+                    <Image>41</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>2</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>41</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+              <Loop>
+                <ID>3</ID>
                 <RunNextLoop>False</RunNextLoop>
                 <Frames />
               </Loop>
