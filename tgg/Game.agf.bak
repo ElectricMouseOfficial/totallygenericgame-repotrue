@@ -2760,7 +2760,7 @@ stop
 cprotag: Uh... where did the fountain go?
 cantag: Really? You notice that is off before what I thought was incredibly obvious?
 cprotag: Who said that?
-cantag: *sigh* do I really have to do everything for you? Fine, I'll closer... //is now visible to player
+cantag: *sigh* do I really have to do everything for you? Fine, I'll move closer... //is now visible to player
   cantag.x = 2260;
   cantag.y = 135;
 cprotag: Ah, now I see you!
