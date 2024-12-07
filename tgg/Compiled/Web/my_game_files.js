@@ -1,0 +1,1 @@
+var gamefiles = ['tgg.ags', 'acsetup.cfg'];
